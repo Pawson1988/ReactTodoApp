@@ -1,6 +1,6 @@
 import React from "react";
 
-const Form = ({ todoInput, inputField, handleChange}) => {
+const Form = ({ todoInput, inputField, handleChange, deleteTodo}) => {
 
     const formStyles = {
         width: "20%",
@@ -12,6 +12,7 @@ const Form = ({ todoInput, inputField, handleChange}) => {
         <form onSubmit={todoInput} style={formStyles}>
             <input value={inputField} onChange={handleChange} id="todo" name="todo" type="text" placeholder="Todo"></input>
             <button type="submit">Add Todo</button>
+            <button onClick={deleteTodo}>Delete Last Todo</button>
         </form>
     )
 }

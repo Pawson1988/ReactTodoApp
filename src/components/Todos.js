@@ -7,11 +7,16 @@ const Todos = ({ todos }) => {
     marginTop: "5rem",
   };
 
+
   return (
     <div style={todoStyles}>
       {todos &&
         todos.map((todo) => {
-          return <li>{todo}</li>;
+          return (
+            <div>
+              <li>{todo}</li>
+            </div>
+          );
         })}
     </div>
   );
