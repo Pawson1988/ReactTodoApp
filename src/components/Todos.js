@@ -1,25 +1,43 @@
 import React from "react";
 
-const Todos = ({ todos }) => {
+const Todos = ({ todos, deleteTodo }) => {
   const todoStyles = {
     width: "20%",
     margin: "0 auto",
     marginTop: "5rem",
   };
 
-
-  return (
-    <div style={todoStyles}>
-      {todos &&
-        todos.map((todo) => {
+  if (todos.length === 0) {
+    return (
+      <div>
+        <h1 style={todoStyles}>
+          Surely you've got something to do! you must have the best life ever!!
+        </h1>
+      </div>
+    );
+  } else {
+    return (
+      <div style={todoStyles}>
+        {todos.map((todo, index) => {
           return (
             <div>
-              <li>{todo}</li>
+              <li key={index}>{todo}</li>
+              {
+                <button
+                  key={`button: ${index}`}
+                  onClick={(e) => {
+                    deleteTodo(index);
+                  }}
+                >
+                  Delete
+                </button>
+              }
             </div>
           );
         })}
-    </div>
-  );
+      </div>
+    );
+  }
 };
 
 export default Todos;
