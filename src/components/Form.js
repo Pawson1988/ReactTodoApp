@@ -1,6 +1,6 @@
 import React from "react";
 
-const Form = ({ todoInput, inputField, handleChange }) => {
+const Form = ({ todoInput, inputField, handleChange, errorMsg }) => {
   const formStyles = {
     width: "20%",
     margin: "0 auto",
@@ -18,6 +18,7 @@ const Form = ({ todoInput, inputField, handleChange }) => {
           type="text"
           placeholder="Todo"
         ></input>
+        <h2>{errorMsg}</h2>
         <button type="submit">Add Todo</button>
       </form>
     </div>

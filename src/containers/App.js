@@ -6,6 +6,7 @@ import "./App.css";
 function App() {
   const [todos, setTodos] = useState([]);
   const [inputField, setInputField] = useState();
+  const [errorMsg, setErrorMsg] = useState();
 
   useEffect(() => {
     const initialTodos = ["Do Homework", "Plan Classes", "Do the Hoovering"];
@@ -23,9 +24,15 @@ function App() {
   }
 
   function todoInput(e) {
-    setTodos((prevTodos) => [...prevTodos, e.target.todo.value]);
-    setInputField("");
+    const newTodo = e.target.todo.value;
     e.preventDefault();
+    if (newTodo !== "") {
+      setTodos((prevTodos) => [...prevTodos, newTodo]);
+      setInputField("");
+      setErrorMsg("");
+    } else {
+      setErrorMsg("Your todo can't be blank! come on! use your head!");
+    }
   }
 
   if (todos === undefined) {
@@ -41,6 +48,7 @@ function App() {
           todoInput={todoInput}
           inputField={inputField}
           handleChange={handleChange}
+          errorMsg={errorMsg}
         />
         <Todos todos={todos} deleteTodo={deleteTodo} />
       </div>
