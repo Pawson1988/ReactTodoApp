@@ -1,31 +1,45 @@
 import React, { useState } from "react";
 import TodosComments from "./TodosComments";
+import styled from "styled-components";
+
+const StyledDiv = styled.div`
+  padding: 40px;
+  width: 20%;
+  margin: 20px auto;
+  margintop: 5rem;
+  border: 1px solid black;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  :hover {
+    background: lightblue;
+  }
+`;
+
+const StyledList = styled.li`
+  font-weight: 700;
+  list-style: none;
+`;
 
 const Todos = ({ todos, deleteTodo }) => {
-
-const [comments, setComments] = useState("This is a comment");
-
-  const todoStyles = {
-    width: "20%",
-    margin: "0 auto",
-    marginTop: "5rem",
-  };
+  const [comments, setComments] = useState("This is to be done URGENTLY!");
 
   if (todos.length === 0) {
     return (
-      <div>
-        <h1 style={todoStyles}>
+      <StyledDiv>
+        <h1 style={{ fontWeight: 700 }}>
           Surely you've got something to do! you must have the best life ever!!
         </h1>
-      </div>
+      </StyledDiv>
     );
   } else {
     return (
-      <div style={todoStyles}>
+      <div>
         {todos.map((todo, index) => {
           return (
-            <div>
-              <li key={index}>{todo}</li>
+            <StyledDiv>
+              <StyledList key={index}>{todo}</StyledList>
               <TodosComments comments={comments} />
               {
                 <button
@@ -37,7 +51,7 @@ const [comments, setComments] = useState("This is a comment");
                   Delete
                 </button>
               }
-            </div>
+            </StyledDiv>
           );
         })}
       </div>
