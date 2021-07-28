@@ -1,6 +1,10 @@
-import React from "react";
+import React, { useState } from "react";
+import TodosComments from "./TodosComments";
 
 const Todos = ({ todos, deleteTodo }) => {
+
+const [comments, setComments] = useState("This is a comment");
+
   const todoStyles = {
     width: "20%",
     margin: "0 auto",
@@ -22,6 +26,7 @@ const Todos = ({ todos, deleteTodo }) => {
           return (
             <div>
               <li key={index}>{todo}</li>
+              <TodosComments comments={comments} />
               {
                 <button
                   key={`button: ${index}`}
