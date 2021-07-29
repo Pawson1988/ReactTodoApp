@@ -1,6 +1,6 @@
-import React, { useState } from "react";
-import TodosComments from "./TodosComments";
+import React from "react";
 import styled from "styled-components";
+import TodosComments from "./TodosComments";
 
 const StyledDiv = styled.div`
   padding: 40px;
@@ -23,8 +23,6 @@ const StyledList = styled.li`
 `;
 
 const Todos = ({ todos, deleteTodo }) => {
-  const [comments, setComments] = useState("This is to be done URGENTLY!");
-
   if (todos.length === 0) {
     return (
       <StyledDiv>
@@ -40,7 +38,7 @@ const Todos = ({ todos, deleteTodo }) => {
           return (
             <StyledDiv>
               <StyledList key={index}>{todo}</StyledList>
-              <TodosComments comments={comments} />
+              <TodosComments />
               {
                 <button
                   key={`button: ${index}`}

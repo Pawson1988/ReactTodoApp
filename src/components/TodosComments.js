@@ -1,11 +1,22 @@
-import React from "react";
+import React, { useState } from "react";
 
-const TodosComments = ({comments}) => {
-    return (
-        <div>
-        <p>{comments}</p>
-        </div>
-    )
-}
+const TodosComments = () => {
+  const [comment, setComment] = useState("No Comment");
+
+  function onSubmitComment(e) {
+    setComment(e.target.commentInput.value);
+    e.preventDefault();
+  }
+
+  return (
+    <div>
+      <p>{comment}</p>
+      <form onSubmit={onSubmitComment}>
+        <input name="commentInput" type="text"></input>
+        <button>Add Comment</button>
+      </form>
+    </div>
+  );
+};
 
 export default TodosComments;
