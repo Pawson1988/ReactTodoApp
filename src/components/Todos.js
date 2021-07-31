@@ -7,10 +7,11 @@ const StyledDiv = styled.div`
   width: 20%;
   margin: 20px auto;
   margintop: 5rem;
-  border: 1px solid black;
   display: flex;
   flex-direction: column;
   align-items: center;
+  border-radius: 12px;
+  box-shadow: 1px 1px 1px black;
 
   :hover {
     background: lightblue;
