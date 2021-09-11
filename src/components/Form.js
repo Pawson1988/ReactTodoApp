@@ -1,11 +1,18 @@
+
 import React from "react";
 
 const Form = ({ todoInput, inputField, handleChange, errorMsg }) => {
+
   const formStyles = {
     width: "20%",
     margin: "0 auto",
     marginTop: "5rem",
+    display: "flex",
+    flexDirection: "column",
+    alignItems: "center",
+    marginBottom: "4rem"
   };
+  
 
   return (
     <div>

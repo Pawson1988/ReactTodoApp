@@ -15,6 +15,7 @@ const StyledDiv = styled.div`
 
   :hover {
     background: lightblue;
+    color: brown;
   }
 `;
 

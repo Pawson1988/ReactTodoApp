@@ -6,7 +6,7 @@ const TodosComments = () => {
   const [warning, setWarning] = useState("");
 
   function onSubmitComment(e) {
-    setComment(e.target.commentInput.value);
+    setComment(inputField);
     setInputField("");
     setWarning("");
     e.preventDefault();

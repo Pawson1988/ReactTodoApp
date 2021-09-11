@@ -24,7 +24,7 @@ function App() {
   }
 
   function todoInput(e) {
-    const newTodo = e.target.todo.value;
+    const newTodo = inputField;
     e.preventDefault();
     if (newTodo !== "") {
       setTodos((prevTodos) => [...prevTodos, newTodo]);
